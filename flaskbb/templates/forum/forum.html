@@ -84,6 +84,7 @@
                             </div>
 
                             <div class="topic-author">
+                                <span class="fa fa-user-secret fa-fw"></span>
                                 {% trans %}by{% endtrans %}
                                 {% if topic.user_id %}
                                  <a href="{{ topic.user.url }}">{{ topic.user.username }}</a>
@@ -101,17 +102,21 @@
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-2 hidden-xs topic-stats">
+                    <span class="fa fa-file-text-o fa-fw"></span>
                     {{ topic.post_count }}
                 </div>
 
                 <div class="col-md-2 col-sm-2 hidden-xs topic-stats">
+                    <span class="fa fa-eye fa-fw"></span>
                     {{ topic.views }}
                 </div>
 
                 <div class="col-md-3 col-sm-3 col-xs-4 topic-last-post">
+                    <span class="fa fa-clock-o fa-fw"></span>
                     <a href="{{ last_post.url }}">{{ last_post.date_created|time_since }}</a><br />
 
                     <div class="topic-author">
+                        <span class="fa fa-user-secret fa-fw"></span>
                         {% trans %}by{% endtrans %}
                         {% if last_post.user_id %}
                         <a href="{{ last_post.user.url }}">{{ last_post.user.username }}</a>
