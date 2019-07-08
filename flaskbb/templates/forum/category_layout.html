@@ -57,9 +57,11 @@
                         {% if forum.locked %}
                             <span class="fa fa-lock fa-fw forum-locked"></span>
                         {% elif forum|forum_is_unread(forumsread, current_user) %}
-                            <span class="fa fa-comments fa-fw forum-unread"></span>
+                            <!-- <span class="fa fa-comments fa-fw forum-unread"></span> -->
+                            <span class="fa fa-envelope-open fa-fw forum-unread"></span>
                         {% else %}
-                            <span class="fa fa-comments-o fa-fw forum-read"></span>
+                            <!-- <span class="fa fa-comments-o fa-fw forum-read"></span> -->
+                            <span class="fa fa-envelope-open-o fa-fw forum-read"></span>
                         {% endif %}
                     </div>
 
@@ -89,11 +91,13 @@
 
             <!-- Post Count -->
             <div class="col-md-2 col-sm-2 hidden-xs forum-topics">
+            <span class="fa fa-file-image-o fa-fw"></span>
             {{ forum.topic_count }}
             </div>
 
             <!-- Topic Count -->
             <div class="col-md-2 col-sm-2 hidden-xs forum-posts">
+            <span class="fa fa-file-text-o fa-fw"></span>
             {{ forum.post_count }}
             </div>
 
@@ -101,16 +105,19 @@
             <div class="col-md-3 col-sm-3 col-xs-4 forum-last-post">
                 {% if forum.last_post_id %}
                 <div class="last-post-title">
+                    <span class="fa fa-file-text fa-fw"></span>
                     <a href="{{ forum.last_post_url }}" title="{{ forum.last_post_title }}">
                         {{ forum.last_post_title|crop_title }}
                     </a>
                 </div>
 
                 <div class="last-post-time">
+                    <span class="fa fa-clock-o fa-fw"></span>
                     {{ forum.last_post_created|time_since }}
                 </div>
 
                 <div class="last-post-author">
+                    <span class="fa fa-user-secret fa-fw"></span>
                     {% trans %}by{% endtrans %}
                     {% if forum.last_post_user_id %}
                     <a href="{{ url_for('user.profile', username=forum.last_post_username) }}">{{ forum.last_post_username }}</a>
